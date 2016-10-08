@@ -156,7 +156,7 @@ app.controller("cweather", function($scope, $http) {
 			$scope = $('#weather').scope();
 			$scope.$apply(function(){
 				$scope.coords = position.coords.latitude + ", " + position.coords.longitude;
-				$scope.message.text = "Coordinates detected";
+				$scope.message.text = "Coordinates detected.";
 				$scope.message.code = "ok";
 				$scope.input = "coords";
 				//$scope.get_by_coords();
@@ -167,7 +167,7 @@ app.controller("cweather", function($scope, $http) {
 		function geo_error () {
 			$scope = $('#weather').scope();
 			$scope.$apply(function(){
-				$scope.message.text = "";
+				$scope.message.text = "Many browsers supports position requests only on HTTPS. So you may try other browser (e.g. Firefox) or find weather using form above.";
 				$scope.message.code = "ok";
 				$scope.input = "city";
 			});
