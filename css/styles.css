@@ -1,0 +1,128 @@
+/*** COMMON ***/
+
+body {
+background: #f9f9f9;
+}
+
+#weather {
+margin: 0 auto;
+max-width: 640px;
+padding: 20px 20px 40px 20px;
+}
+
+#weather-result {
+}
+
+.process #weather-result {
+background: url("../imgs/loading.gif") center center no-repeat;
+min-height: 140px;
+min-width: 140px;
+}
+
+#col-left {
+display: table;
+}
+
+#col-right {
+float: right;
+margin: 0 0 0 20px;
+max-width: 50%;
+}
+
+#madeby {
+color: #999999 !important;
+position: fixed;
+left: 10px;
+bottom: 10px;
+}
+
+
+
+/*** FORMS ***/
+
+.form-item {
+margin: 3px auto;
+}
+
+.form-text input,
+.form-submit input {
+display: block;
+max-width: 100%;
+padding: 2px 4px;
+width: 260px;
+}
+
+.form-text input {
+width: 248px;
+}
+
+.label {
+font-weight: bold;
+}
+
+
+
+/*** MESSAGES ***/
+
+.message {
+background: #f3faef;
+border: 1px solid #c9e1bd;
+color: #325e1c;
+margin: 8px 0;
+padding: 16px;
+}
+
+.message.err {
+background: #fcf4f2;
+border: 1px solid #f9c9bf;
+color: #a51b00;
+}
+
+
+
+/*** WEATHER ***/
+
+#weather-result img {
+animation: b 3.3s ease-in-out infinite;
+}
+
+#weather-result .name {
+font-weight: bold;
+}
+
+#weather-result .temp {
+font-size: 32px;
+height: 50px;
+line-height: 50px;
+vertical-align: top;
+}
+
+#weather-result .wind {
+color: #999999;
+}
+
+
+
+/*** ANIMATION ***/
+
+/* heart-beat */
+@keyframes b {
+  0% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  50% {
+    -moz-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    -moz-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Get you weather here</title>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="css/styles.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/module.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+</head>
+
+<body>
+
+<div ng-app="weather" ng-controller="cweather" id="weather" class="{{state}}">
+	<h1>Personal weather service</h1>
+
+	<div id="col-right">
+		<div id="weather-result">
+			<div class="in" ng-show="state == 'done' && data.weather">
+				<div><span class="name">{{data.name}}</span></div>
+				<div>
+					<span class="icon"><img src="{{get_image_url(data.weather[0].icon)}}" /></span>
+					<span class="temp">{{get_temp(data.main.temp)}}&deg;C</span>
+				</div>
+				<div><span class="weather">{{data.weather[0].description}}</span></div>
+				<div><span class="wind">Wind {{data.wind.speed}} m/s</span></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="col-left">
+		<form id="weather_form" name="weather_form">
+			<div class="form-item form-radios">
+				<div class="label">Find weather by</div>
+				<label><input ng-model="input" name="input" value="coords" type="radio">Coordinates</label>
+				<label><input ng-model="input" name="input" value="city" type="radio">City</label>
+				<label><input ng-model="input" name="input" value="zip" type="radio">ZIP-code</label>
+			</div>
+			<div class="form-item form-text" ng-show="input == 'coords'">
+				<input type="text" name="coords" ng-model="coords" placeholder="55.05, 44.04" required />
+			</div>
+			<div class="form-item form-text" ng-show="input == 'city'">
+				<input type="text" name="city" ng-model="city" placeholder="City" required />
+			</div>
+			<div class="form-item form-text" ng-show="input == 'zip'">
+				<input type="text" name="zip" ng-model="zip" placeholder="ZIP-code, Country" required />
+			</div>
+			<div class="form-item form-submit">
+				<input type="button" value="Get my weather" ng-click="doit()" />
+			</div>
+		</form>
+		
+		<div class="message {{message.code}}" ng-show="message.text != ''">{{message.text}}</div>
+	</div>
+</div>
+
+<div id="madeby">Made by Ivan Klochko. Here are the <a href="myweather.zip" onclick="return confirm('Say WOW first.');">sources</a>.</div>
+
+</body>
+</html>
